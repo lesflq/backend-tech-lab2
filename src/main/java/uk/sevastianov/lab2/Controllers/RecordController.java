@@ -44,6 +44,9 @@ public class RecordController {
         if (categoryId == null) {
             return ResponseEntity.ok(recordService.getRecordsByUser(userId));
         }
+        if (userId == null) {
+            return ResponseEntity.ok(recordService.getRecordsByCategory(categoryId));
+        }
 
         return ResponseEntity.ok(recordService.getRecordsByCategory(userId, categoryId));
     }

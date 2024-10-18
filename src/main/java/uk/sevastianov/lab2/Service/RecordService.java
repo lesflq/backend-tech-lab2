@@ -33,6 +33,11 @@ public class RecordService {
                 .filter(record -> record.getUserId().equals(userId) && record.getCategoryId().equals(categoryId))
                 .collect(Collectors.toList());
     }
+    public List<Record> getRecordsByCategory(Long categoryId) {
+        return records.values().stream()
+                .filter(record -> record.getCategoryId().equals(categoryId))
+                .collect(Collectors.toList());
+    }
 
     public boolean deleteRecord(Long id) {
         return records.remove(id) != null;
