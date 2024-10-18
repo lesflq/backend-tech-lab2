@@ -1,4 +1,5 @@
 package uk.sevastianov.lab2.Service;
+import org.springframework.stereotype.Service;
 import uk.sevastianov.lab2.Entity.Record;
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class RecordService {
     private Map<Long, Record> records = new HashMap<>();
     private Long nextId = 1L;

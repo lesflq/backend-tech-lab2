@@ -1,7 +1,10 @@
 package uk.sevastianov.lab2.Service;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import uk.sevastianov.lab2.Entity.User;
 import java.util.*;
 
+@Service
 public class UserService {
     private Map<Long, User> users = new HashMap<>();
     private Long nextId = 1L;
