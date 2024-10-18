@@ -6,4 +6,4 @@
 - In docker desktop search for the image *lesflqq/backend-tech-lab2*
 - Click **Pull**, and then **Run**
 - Сreate a new container and specify **8080** in the Port(s) field
-- When the program starts, go to http://localhost:8080/
+- When the program starts, test endpoints from postman's collection
