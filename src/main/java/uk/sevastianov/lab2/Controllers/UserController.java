@@ -23,19 +23,19 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<User> getUser(@PathVariable Long userId) {
+    public ResponseEntity<User> getUser(@PathVariable(name = "userId") Long userId) {
         return userService.getUser(userId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping
+    @GetMapping()
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long userId) {
+    public ResponseEntity<Void> deleteUser(@PathVariable(name = "userId") Long userId) {
         if (userService.deleteUser(userId)) {
             return ResponseEntity.noContent().build();
         }

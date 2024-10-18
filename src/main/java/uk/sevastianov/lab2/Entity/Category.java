@@ -1,5 +1,6 @@
 package uk.sevastianov.lab2.Entity;
 
+
 public class Category {
     private Long id;
     private String name;

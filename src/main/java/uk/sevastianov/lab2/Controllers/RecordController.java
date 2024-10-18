@@ -18,18 +18,21 @@ public class RecordController {
     }
 
     @PostMapping
+    @ResponseBody
     public Record createRecord(@RequestBody Record record) {
         return recordService.createRecord(record);
     }
 
     @GetMapping("/{recordId}")
-    public ResponseEntity<Record> getRecord(@PathVariable Long recordId) {
+    @ResponseBody
+    public ResponseEntity<Record> getRecord(@PathVariable(name = "recordId") Long recordId) {
         return recordService.getRecord(recordId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
+    @ResponseBody
     public ResponseEntity<List<Record>> getRecords(
             @RequestParam(required = false) Long userId,
             @RequestParam(required = false) Long categoryId) {
@@ -46,7 +49,7 @@ public class RecordController {
     }
 
     @DeleteMapping("/{recordId}")
-    public ResponseEntity<Void> deleteRecord(@PathVariable Long recordId) {
+    public ResponseEntity<Void> deleteRecord(@PathVariable(name = "recordId") Long recordId) {
         if (recordService.deleteRecord(recordId)) {
             return ResponseEntity.noContent().build();
         }

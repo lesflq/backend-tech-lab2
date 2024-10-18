@@ -18,17 +18,20 @@ public class CategoryController {
     }
 
     @PostMapping
+    @ResponseBody
     public Category createCategory(@RequestBody Category category) {
         return categoryService.createCategory(category);
+
     }
 
     @GetMapping
+    @ResponseBody
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
     @DeleteMapping("/{categoryId}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Long categoryId) {
+    public ResponseEntity<Void> deleteCategory(@PathVariable(name = "categoryId") Long categoryId) {
         if (categoryService.deleteCategory(categoryId)) {
             return ResponseEntity.noContent().build();
         }
