@@ -8,6 +8,7 @@ import uk.sevastianov.lab2.Entity.Record;
 
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/record")
 public class RecordController {
@@ -37,14 +38,15 @@ public class RecordController {
             @RequestParam(required = false) Long userId,
             @RequestParam(required = false) Long categoryId) {
 
-        if (userId == null && categoryId == null) {
+        if ((userId == null && categoryId == null) || (userId == 0 && categoryId == 0)) {
+            System.out.println("No one params found");
             return ResponseEntity.badRequest().build();
         }
 
-        if (categoryId == null) {
+        if (categoryId == null || categoryId == 0) {
             return ResponseEntity.ok(recordService.getRecordsByUser(userId));
         }
-        if (userId == null) {
+        if (userId == null || userId == 0) {
             return ResponseEntity.ok(recordService.getRecordsByCategory(categoryId));
         }
 
