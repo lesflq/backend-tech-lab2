@@ -10,7 +10,7 @@ public class UserService {
     private Long nextId = 1L;
 
     public User createUser(User user) {
-        user.setId(nextId++);
+        user.toBuilder().id(nextId++).build();
         users.put(user.getId(), user);
         return user;
     }

@@ -14,7 +14,7 @@ public class CategoryService {
     private long nextId = 1L;
 
     public Category createCategory(Category category) {
-        category.setId(nextId++);
+        category.toBuilder().id(nextId++).build();
         categories.put(category.getId(), category);
         return category;
     }

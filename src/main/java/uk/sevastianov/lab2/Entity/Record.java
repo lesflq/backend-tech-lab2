@@ -1,51 +1,16 @@
 package uk.sevastianov.lab2.Entity;
 
+import lombok.Builder;
+import lombok.Value;
+
 import java.time.LocalDateTime;
-
+@Value
+@Builder(toBuilder = true)
 public class Record {
-    private Long id;
-    private Long userId;
-    private Long categoryId;
-    private LocalDateTime timestamp;
-    private Double amount;
+    Long id;
+    Long userId;
+    Long categoryId;
+    LocalDateTime timestamp;
+    Double amount;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
 }

@@ -13,7 +13,7 @@ public class RecordService {
     private Long nextId = 1L;
 
     public Record createRecord(Record record) {
-        record.setId(nextId++);
+        record.toBuilder().id(nextId++).build();
         records.put(record.getId(), record);
         return record;
     }
